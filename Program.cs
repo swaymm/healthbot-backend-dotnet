@@ -1,4 +1,4 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
@@ -18,13 +18,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// ✅ Swagger is now always enabled
+app.UseSwagger();
+app.UseSwaggerUI();
 
-// ✅ Important: use named CORS policy before controllers
+// ✅ Enable CORS before controllers
 app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
