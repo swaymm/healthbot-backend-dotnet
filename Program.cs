@@ -9,7 +9,8 @@ builder.Services.AddCors(options =>
             .WithOrigins(
                 "http://localhost:5500",          // for local development
                 "http://127.0.0.1:5500",          // alternate localhost
-                "https://swaymm.github.io"        // ✅ your deployed frontend
+                "https://swaymm.github.io"  
+            "https://swaymm.github.io/HEALTHMATE.AI/"
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
