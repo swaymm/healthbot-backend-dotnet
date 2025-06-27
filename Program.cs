@@ -1,11 +1,16 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// ✅ CORS configuration
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-            .WithOrigins("http://localhost:5500", "http://127.0.0.1:5500")
+            .WithOrigins(
+                "http://localhost:5500",          // for local development
+                "http://127.0.0.1:5500",          // alternate localhost
+                "https://swaymm.github.io"        // ✅ your deployed frontend
+            )
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -18,11 +23,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// ✅ Swagger is now always enabled
+// ✅ Enable Swagger
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// ✅ Enable CORS before controllers
+// ✅ Enable CORS BEFORE controllers
 app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
