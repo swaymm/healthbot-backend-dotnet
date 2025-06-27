@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 public class ChatbotController : ControllerBase
 {
     private readonly HttpClient _httpClient;
-    private readonly string _apiKey = "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"; // 🔐 Replace with your actual OpenRouter API key
+    private readonly string _apiKey = "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"; // 🔐 Replace with your actual OpenRouter API key
 
     public ChatbotController(IHttpClientFactory httpClientFactory)
     {
