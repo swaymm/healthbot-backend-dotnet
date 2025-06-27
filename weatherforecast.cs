@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using AIhealthchatbot; // ✅ Make sure this is here!
+using AIhealthchatbot; // ✅ Import the model's namespace
 
 namespace AIhealthchatbot.Controllers
 {
