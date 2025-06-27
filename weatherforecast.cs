@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using AIhealthchatbot; // ✅ Make sure this is here!
 
 namespace AIhealthchatbot.Controllers
 {
@@ -8,7 +9,7 @@ namespace AIhealthchatbot.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Freezing", "Chilly", "Cool", "Mild", "Warm", "Hot", "Scorching"
         };
 
         [HttpGet]
@@ -17,7 +18,7 @@ namespace AIhealthchatbot.Controllers
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
+                TemperatureC = Random.Shared.Next(-20, 40),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             });
         }
